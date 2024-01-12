@@ -11,3 +11,16 @@ Currency Conversion Service
 
 Eureka ( Naming Server )
 		http://localhost:8761/
+
+API-Gateway
+		http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/USD/to/INR
+
+
+		http://localhost:8765/CURRENCY-CONVERSION/currency-conversion/from/USD/to/INR/quantity/10
+		http://localhost:8765/CURRENCY-CONVERSION/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+
+		http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
+		http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/INR/quantity/10
+		http://localhost:8765/currency-conversion/currency-conversion-feign/from/USD/to/INR/quantity/10
+
