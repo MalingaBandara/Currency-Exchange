@@ -19,7 +19,7 @@ public class CircuitBreakerController {
 	
 	
 	@GetMapping( "/sample-api" )
-	@Retry ( name = "default" ) // add retry config 
+	@Retry ( name = "sample-api" ) // add retry config 
 	public String sampleApi() {
 		
 		// Get Log for output 
