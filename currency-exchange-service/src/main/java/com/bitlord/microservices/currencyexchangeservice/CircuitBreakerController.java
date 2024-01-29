@@ -19,7 +19,7 @@ public class CircuitBreakerController {
 	
 	
 	@GetMapping( "/sample-api" )
-	@Retry ( name = "sample-api" ) // add retry config 
+	@Retry ( name = "sample-api", fallbackMethod = "hardcodedRespones" ) // add retry config 
 	public String sampleApi() {
 		
 		// Get Log for output 
@@ -28,6 +28,14 @@ public class CircuitBreakerController {
 		ResponseEntity<String> forEntity = new RestTemplate().getForEntity( "http://localhost:8080/some-dummy-url", String.class ); // set dummy url (this not work)
 		
 		return forEntity.getBody();
+		
+	}
+	
+	
+	
+	public String hardcodedRespones( Exception ex ) {
+		
+		return "fallback-response";
 		
 	}
 		
