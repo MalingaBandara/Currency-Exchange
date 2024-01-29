@@ -33,7 +33,7 @@ public class CircuitBreakerController {
 	
 	
 	
-	public String hardcodedRespones( Exception ex ) {
+	public String hardcodedRespones( Exception ex ) { // fall back method
 		
 		return "fallback-response";
 		
