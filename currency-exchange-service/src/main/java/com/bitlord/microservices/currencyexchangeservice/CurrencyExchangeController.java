@@ -9,37 +9,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CurrencyExchangeController {
-	
-	
+
+
 	@Autowired
 	private CurrencyExchangeRepository repository;
-	
-	
+
+
 	@Autowired
 	private Environment environment;
-	
-	
+
+
 	@GetMapping( "/currency-exchange/from/{from}/to/{to}" )
 	public CurrencyExchange retriveExchangeValue ( @PathVariable String from, @PathVariable String to ) {
-		
-				
+
+
 		CurrencyExchange currencyExchange = repository.findByFromAndTo(from, to); // Jpa Repo Method
-		
-		
+
+
 		// null data exception
 		if ( currencyExchange  == null ) {
 			throw new RuntimeException ("Unable to find data for " + from + " to " + to );
 		}
-		
-		
+
+
 		String port = environment.getProperty( "local.server.port" ); // get local server port
-		
+
 		currencyExchange.setEnvironment( port ); // set environment
-		
-		return currencyExchange; 
-		
-		
+
+		return currencyExchange;
+
+
 	}
-	
+
 
 }
