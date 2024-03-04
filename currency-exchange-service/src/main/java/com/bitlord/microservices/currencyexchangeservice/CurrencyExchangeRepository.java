@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @EnableJpaRepositories
 @Repository
-public interface CurrencyExchangeRepository extends JpaRepository < CurrencyExchange , Long > {
+public interface CurrencyExchangeRepository extends JpaRepository<CurrencyExchange, Long> {
 
-	CurrencyExchange findByFromAndTo ( String from, String to );
+    CurrencyExchange findByFromAndTo(String from, String to);
 
 }

@@ -12,32 +12,31 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 public class CircuitBreakerController {
 
 
-	// Define Log
-	private Logger logger= LoggerFactory.getLogger( CircuitBreakerController.class );
+    // Define Log
+    private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
 
 
-	@GetMapping( "/sample-api" )
-	//@Retry ( name = "sample-api", fallbackMethod = "hardcodedRespones" ) // add retry config
-	//@CircuitBreaker ( name = "default", fallbackMethod = "hardcodedRespones" ) // add Circuit Breaker config
-	//@RateLimiter( name = "default" ) // 10s  => 2 calls to the sample API
-	@Bulkhead ( name = "default" )
-	public String sampleApi() {
+    @GetMapping("/sample-api")
+    //@Retry ( name = "sample-api", fallbackMethod = "hardcodedRespones" ) // add retry config
+    //@CircuitBreaker ( name = "default", fallbackMethod = "hardcodedRespones" ) // add Circuit Breaker config
+    //@RateLimiter( name = "default" ) // 10s  => 2 calls to the sample API
+    @Bulkhead(name = "default")
+    public String sampleApi() {
 
-		// Get Log for output
-		//logger.info( "Sample API call received" );
-		//ResponseEntity<String> forEntity = new RestTemplate().getForEntity( "http://localhost:8080/some-dummy-url", String.class ); // set dummy url (this not work)
-		//return forEntity.getBody();
+        // Get Log for output
+        //logger.info( "Sample API call received" );
+        //ResponseEntity<String> forEntity = new RestTemplate().getForEntity( "http://localhost:8080/some-dummy-url", String.class ); // set dummy url (this not work)
+        //return forEntity.getBody();
 
-		return "sample-api";
-	}
+        return "sample-api";
+    }
 
 
+    public String hardcodedRespones(Exception ex) { // fall back method
 
-	public String hardcodedRespones( Exception ex ) { // fall back method
+        return "fallback-response";
 
-		return "fallback-response";
-
-	}
+    }
 
 
 }
