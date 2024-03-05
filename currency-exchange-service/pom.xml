@@ -47,7 +47,7 @@
         <!-- #########-->
 
 
-        <!-- Zipkin -->
+<!-- Zipkin -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -58,15 +58,15 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
-        <!-- ++++++++++ -->
+<!-- ++++++++++ -->
 
 
-        <!-- Rabbit MQ -->
+<!-- Rabbit MQ -->
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
         </dependency>
-        <!-- ************ -->
+<!-- ************ -->
 
 
         <!--  Resilience4j -->
